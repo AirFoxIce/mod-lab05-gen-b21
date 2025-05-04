@@ -1,0 +1,16 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": ".NET Core Launch (external console)",
+            "type": "coreclr",
+            "request": "launch",
+            "preLaunchTask": "build",
+            "program": "${workspaceFolder}/ProjCharGenerator/bin/Debug/netcoreapp7.0/ProjCharGenerator.dll",
+            "args": [],
+            "cwd": "${workspaceFolder}/ProjCharGenerator",
+            "console": "externalTerminal",
+            "stopAtEntry": false
+        }
+    ]
+}

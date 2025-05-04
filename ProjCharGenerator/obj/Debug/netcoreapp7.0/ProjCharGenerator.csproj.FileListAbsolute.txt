@@ -1,0 +1,15 @@
+C:\Users\User\YandexDisk-Vivalexy\Programming\Modeling_of_information_processes\mod-lab05-gen-b21\ProjCharGenerator\bin\Debug\netcoreapp7.0\ProjCharGenerator.exe
+C:\Users\User\YandexDisk-Vivalexy\Programming\Modeling_of_information_processes\mod-lab05-gen-b21\ProjCharGenerator\bin\Debug\netcoreapp7.0\ProjCharGenerator.deps.json
+C:\Users\User\YandexDisk-Vivalexy\Programming\Modeling_of_information_processes\mod-lab05-gen-b21\ProjCharGenerator\bin\Debug\netcoreapp7.0\ProjCharGenerator.runtimeconfig.json
+C:\Users\User\YandexDisk-Vivalexy\Programming\Modeling_of_information_processes\mod-lab05-gen-b21\ProjCharGenerator\bin\Debug\netcoreapp7.0\ProjCharGenerator.dll
+C:\Users\User\YandexDisk-Vivalexy\Programming\Modeling_of_information_processes\mod-lab05-gen-b21\ProjCharGenerator\bin\Debug\netcoreapp7.0\ProjCharGenerator.pdb
+C:\Users\User\YandexDisk-Vivalexy\Programming\Modeling_of_information_processes\mod-lab05-gen-b21\ProjCharGenerator\obj\Debug\netcoreapp7.0\ProjCharGenerator.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\User\YandexDisk-Vivalexy\Programming\Modeling_of_information_processes\mod-lab05-gen-b21\ProjCharGenerator\obj\Debug\netcoreapp7.0\ProjCharGenerator.AssemblyInfoInputs.cache
+C:\Users\User\YandexDisk-Vivalexy\Programming\Modeling_of_information_processes\mod-lab05-gen-b21\ProjCharGenerator\obj\Debug\netcoreapp7.0\ProjCharGenerator.AssemblyInfo.cs
+C:\Users\User\YandexDisk-Vivalexy\Programming\Modeling_of_information_processes\mod-lab05-gen-b21\ProjCharGenerator\obj\Debug\netcoreapp7.0\ProjCharGenerator.csproj.CoreCompileInputs.cache
+C:\Users\User\YandexDisk-Vivalexy\Programming\Modeling_of_information_processes\mod-lab05-gen-b21\ProjCharGenerator\obj\Debug\netcoreapp7.0\ProjCharGenerator.sourcelink.json
+C:\Users\User\YandexDisk-Vivalexy\Programming\Modeling_of_information_processes\mod-lab05-gen-b21\ProjCharGenerator\obj\Debug\netcoreapp7.0\ProjCharGenerator.dll
+C:\Users\User\YandexDisk-Vivalexy\Programming\Modeling_of_information_processes\mod-lab05-gen-b21\ProjCharGenerator\obj\Debug\netcoreapp7.0\refint\ProjCharGenerator.dll
+C:\Users\User\YandexDisk-Vivalexy\Programming\Modeling_of_information_processes\mod-lab05-gen-b21\ProjCharGenerator\obj\Debug\netcoreapp7.0\ProjCharGenerator.pdb
+C:\Users\User\YandexDisk-Vivalexy\Programming\Modeling_of_information_processes\mod-lab05-gen-b21\ProjCharGenerator\obj\Debug\netcoreapp7.0\ProjCharGenerator.genruntimeconfig.cache
+C:\Users\User\YandexDisk-Vivalexy\Programming\Modeling_of_information_processes\mod-lab05-gen-b21\ProjCharGenerator\obj\Debug\netcoreapp7.0\ref\ProjCharGenerator.dll

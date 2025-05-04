@@ -38,7 +38,9 @@ namespace generator
             {
                  Console.WriteLine("{0} - {1}",entry.Key,entry.Value/1000.0); 
             }
-            
+            Console.WriteLine("Нажмите Enter для выхода...");
+            Console.ReadLine();
+
         }
     }
 }
