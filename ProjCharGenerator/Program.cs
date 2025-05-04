@@ -11,6 +11,7 @@ namespace ProjCharGenerator
             Console.WriteLine("Выбери генератор:");
             Console.WriteLine("1 — случайный (CharGenerator)");
             Console.WriteLine("2 — по биграммам (BigramGenerator)");
+            Console.WriteLine("3 — по частотным словам (WordGenerator)");
             Console.Write("Ввод: ");
             string input = Console.ReadLine();
 
@@ -21,6 +22,10 @@ namespace ProjCharGenerator
             else if (input == "2")
             {
                 RunBigram();
+            }
+            else if (input == "3")
+            {
+                RunWords();
             }
             else
             {
@@ -79,6 +84,20 @@ namespace ProjCharGenerator
             File.WriteAllText(Path.Combine(outDir, "gen-1.txt"), text);
 
             Console.WriteLine("\nСохранил в Results/gen-1.txt");
+        }
+
+        static void RunWords()
+        {
+            var gen = new WordGenerator("word.txt");
+            string text = gen.Generate(1000);
+
+            Console.WriteLine(text);
+
+            string outDir = Path.Combine("..", "Results");
+            Directory.CreateDirectory(outDir);
+            File.WriteAllText(Path.Combine(outDir, "gen-2.txt"), text);
+
+            Console.WriteLine("\nСохранил в Results/gen-2.txt");
         }
     }
 }
