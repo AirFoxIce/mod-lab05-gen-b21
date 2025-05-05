@@ -1,60 +1,76 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Text;
+using System.Globalization;
 
 namespace ProjCharGenerator
 {
     class WordGenerator
     {
-        private Dictionary<string, int> words = new Dictionary<string, int>();
-        private Random rnd = new Random();
+        private Dictionary<string, double> frequencies = new Dictionary<string, double>();
+        private Random random = new Random();
+
+        public Dictionary<string, double> ExpectedFrequencies => frequencies;
 
         public WordGenerator(string path)
         {
-            LoadWords(path);
+            LoadFrequencies(path);
         }
 
-        private void LoadWords(string path)
+        private void LoadFrequencies(string path)
         {
+            Dictionary<string, double> raw = new Dictionary<string, double>();
+            double total = 0;
+
             foreach (var line in File.ReadAllLines(path))
             {
                 var parts = line.Split(' ');
-                if (parts.Length == 2)
+                if (parts.Length < 2) continue;
+
+                try
                 {
                     string word = parts[0];
-                    int freq = int.Parse(parts[1].Replace(".", "")); // убираем дроби, если что
-                    words[word] = freq;
+                    double freq = Convert.ToDouble(parts[1], CultureInfo.InvariantCulture);
+
+                    raw[word] = freq;
+                    total += freq;
                 }
+                catch
+                {
+                    // Если вдруг ошибка....
+                }
+            }
+
+            foreach (var pair in raw)
+            {
+                frequencies[pair.Key] = pair.Value / total;
             }
         }
 
-        public string Generate(int wordCount)
+
+        public string Generate(int count)
         {
-            StringBuilder sb = new StringBuilder();
-            List<string> wordList = new List<string>(words.Keys);
+            List<string> result = new List<string>();
+            var words = new List<string>(frequencies.Keys);
+            var probs = new List<double>(frequencies.Values);
 
-            int total = 0;
-            foreach (var val in words.Values)
-                total += val;
-
-            for (int i = 0; i < wordCount; i++)
+            for (int i = 0; i < count; i++)
             {
-                int roll = rnd.Next(total);
-                int sum = 0;
+                double roll = random.NextDouble();
+                double sum = 0;
 
-                foreach (var word in wordList)
+                for (int j = 0; j < probs.Count; j++)
                 {
-                    sum += words[word];
+                    sum += probs[j];
                     if (roll < sum)
                     {
-                        sb.Append(word + " ");
+                        result.Add(words[j]);
                         break;
                     }
                 }
             }
 
-            return sb.ToString().Trim();
+            return string.Join(" ", result);
         }
     }
 }

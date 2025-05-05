@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
+
 
 namespace ProjCharGenerator
 {
@@ -63,41 +65,77 @@ namespace ProjCharGenerator
         {
             var gen = new BigramGenerator("bigram.txt");
             string text = gen.Generate(1000);
-
             Console.WriteLine(text);
 
-            var stat = new Dictionary<char, int>();
-            foreach (char ch in text)
+            var stat = new Dictionary<string, int>();
+            for (int i = 0; i < text.Length - 1; i++)
             {
-                if (stat.ContainsKey(ch)) stat[ch]++;
-                else stat[ch] = 1;
+                string pair = text.Substring(i, 2);
+                if (stat.ContainsKey(pair))
+                    stat[pair]++;
+                else
+                    stat[pair] = 1;
             }
 
-            Console.WriteLine("\nЧастоты:");
-            foreach (var item in stat)
+            int total = stat.Values.Sum();
+            var actual = stat.ToDictionary(kv => kv.Key, kv => kv.Value / (double)total);
+
+            Directory.CreateDirectory("../Results");
+            File.WriteAllText("../Results/gen-1.txt", text);
+
+            var expected = gen.ExpectedFrequencies;
+
+            int partSize = 200;
+            var keys = actual.Keys.ToList();
+
+            for (int i = 0; i < (keys.Count + partSize - 1) / partSize; i++)
             {
-                Console.WriteLine($"{item.Key} - {item.Value / 1000.0}");
+                var part = new Dictionary<string, double>();
+                for (int j = i * partSize; j < Math.Min((i + 1) * partSize, keys.Count); j++)
+                {
+                    string key = keys[j];
+                    part[key] = actual[key];
+                }
+
+                var partExpected = expected
+                    .Where(kv => part.ContainsKey(kv.Key))
+                    .ToDictionary(kv => kv.Key, kv => kv.Value);
+
+                GraphBuilder.Build(partExpected, part, Directory.GetCurrentDirectory(),$"gen-1-part-{i + 1}", $"Биграммы (часть {i + 1})", "Биграмма");
+
             }
 
-            string outDir = Path.Combine("..", "Results");
-            Directory.CreateDirectory(outDir);
-            File.WriteAllText(Path.Combine(outDir, "gen-1.txt"), text);
-
-            Console.WriteLine("\nСохранил в Results/gen-1.txt");
+            Console.WriteLine("\nГрафики сохранены по частям в папке Results.");
         }
+
+
 
         static void RunWords()
         {
             var gen = new WordGenerator("word.txt");
             string text = gen.Generate(1000);
-
             Console.WriteLine(text);
 
-            string outDir = Path.Combine("..", "Results");
-            Directory.CreateDirectory(outDir);
-            File.WriteAllText(Path.Combine(outDir, "gen-2.txt"), text);
+            var stat = new Dictionary<string, int>();
+            foreach (var word in text.Split(' ', StringSplitOptions.RemoveEmptyEntries))
+            {
+                if (stat.ContainsKey(word))
+                    stat[word]++;
+                else
+                    stat[word] = 1;
+            }
 
-            Console.WriteLine("\nСохранил в Results/gen-2.txt");
+            var actual = stat.ToDictionary(kvp => kvp.Key, kvp => kvp.Value / 1000.0);
+            var expected = gen.ExpectedFrequencies;
+
+            string resultsDir = Path.Combine(Directory.GetParent(Directory.GetCurrentDirectory()).FullName, "Results");
+            Directory.CreateDirectory(resultsDir);
+            File.WriteAllText(Path.Combine(resultsDir, "gen-2.txt"), text);
+
+            GraphBuilder.Build(expected, actual, resultsDir, "Слова", "Слова", "Слово");
+
+
         }
+
     }
 }
