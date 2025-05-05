@@ -9,4 +9,14 @@
     <PackageReference Include="ScottPlot" Version="5.0.55" />
   </ItemGroup>
 
+<ItemGroup>
+  <None Update="bigram.txt">
+    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+  </None>
+  <None Update="word.txt">
+    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+  </None>
+</ItemGroup>
+
+
 </Project>

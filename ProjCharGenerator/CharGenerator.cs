@@ -2,7 +2,7 @@ using System;
 
 namespace ProjCharGenerator
 {
-    class CharGenerator
+    public class CharGenerator
     {
         private string syms = "абвгдеёжзийклмнопрстуфхцчшщьыъэюя";
         private char[] data;

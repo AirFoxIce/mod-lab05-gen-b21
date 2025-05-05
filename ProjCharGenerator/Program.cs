@@ -6,7 +6,7 @@ using System.Linq;
 
 namespace ProjCharGenerator
 {
-    class Program
+    public class Program
     {
         static void Main(string[] args)
         {

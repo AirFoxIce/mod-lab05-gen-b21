@@ -5,7 +5,7 @@ using System.Linq;
 
 namespace ProjCharGenerator
 {
-    class BigramGenerator
+    public class BigramGenerator
     {
         private Dictionary<string, double> expected = new();
         private Dictionary<char, Dictionary<char, int>> table = new();

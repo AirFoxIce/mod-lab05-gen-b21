@@ -5,7 +5,7 @@ using System.Globalization;
 
 namespace ProjCharGenerator
 {
-    class WordGenerator
+    public class WordGenerator
     {
         private Dictionary<string, double> frequencies = new Dictionary<string, double>();
         private Random random = new Random();
@@ -37,7 +37,7 @@ namespace ProjCharGenerator
                 }
                 catch
                 {
-                    // Если вдруг ошибка....
+                    // Игнорируем
                 }
             }
 
@@ -46,7 +46,6 @@ namespace ProjCharGenerator
                 frequencies[pair.Key] = pair.Value / total;
             }
         }
-
 
         public string Generate(int count)
         {
@@ -58,6 +57,7 @@ namespace ProjCharGenerator
             {
                 double roll = random.NextDouble();
                 double sum = 0;
+                bool added = false;
 
                 for (int j = 0; j < probs.Count; j++)
                 {
@@ -65,8 +65,14 @@ namespace ProjCharGenerator
                     if (roll < sum)
                     {
                         result.Add(words[j]);
+                        added = true;
                         break;
                     }
+                }
+
+                if (!added && words.Count > 0)
+                {
+                    result.Add(words[^1]);
                 }
             }
 
