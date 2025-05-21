@@ -1,7 +1,7 @@
 {
   "version": 3,
   "targets": {
-    "net9.0": {
+    "net7.0": {
       "coverlet.collector/6.0.2": {
         "type": "package",
         "build": {
@@ -397,12 +397,12 @@
           "SkiaSharp.NativeAssets.Linux.NoDependencies": "2.88.9"
         },
         "compile": {
-          "lib/net8.0/ScottPlot.dll": {
+          "lib/net6.0/ScottPlot.dll": {
             "related": ".xml"
           }
         },
         "runtime": {
-          "lib/net8.0/ScottPlot.dll": {
+          "lib/net6.0/ScottPlot.dll": {
             "related": ".xml"
           }
         }
@@ -1496,7 +1496,7 @@
     }
   },
   "projectFileDependencyGroups": {
-    "net9.0": [
+    "net7.0": [
       "Microsoft.NET.Test.Sdk >= 17.12.0",
       "ProjCharGenerator >= 1.0.0",
       "coverlet.collector >= 6.0.2",
@@ -1526,15 +1526,15 @@
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
-        "net9.0"
+        "net7.0"
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
-        "net9.0": {
-          "targetAlias": "net9.0",
+        "net7.0": {
+          "targetAlias": "net7.0",
           "projectReferences": {
             "C:\\Users\\User\\YandexDisk-Vivalexy\\Programming\\Modeling_of_information_processes\\mod-lab05-gen-b21\\ProjCharGenerator\\ProjCharGenerator.csproj": {
               "projectPath": "C:\\Users\\User\\YandexDisk-Vivalexy\\Programming\\Modeling_of_information_processes\\mod-lab05-gen-b21\\ProjCharGenerator\\ProjCharGenerator.csproj"
@@ -1555,8 +1555,8 @@
       "SdkAnalysisLevel": "9.0.200"
     },
     "frameworks": {
-      "net9.0": {
-        "targetAlias": "net9.0",
+      "net7.0": {
+        "targetAlias": "net7.0",
         "dependencies": {
           "Microsoft.NET.Test.Sdk": {
             "target": "Package",
@@ -1591,7 +1591,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.203/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.204\\RuntimeIdentifierGraph.json"
       }
     }
   }
